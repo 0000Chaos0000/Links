@@ -1,39 +1,39 @@
-/* Chaos's links page · Brand Package v1. Black art only on white/lime; no lime on indigo; no lime text on white.
+/* Chaos's links page: Linktree-style layout, Brand Package v1.
+   Rules: black art only on white/lime · no lime on indigo · no lime text on white · Discord symbol unaltered (white on Blurple).
    — Applejack, Lead Development Agent */
-:root { --bg: #1F1F1F; --card: #2A2A2A; --ink: #F2F2F2; --muted: #BDBDBD; --line: #3A3A3A; --lime: #C4F501; --indigo: #270249;
-  --primary-bg: #C4F501; --primary-ink: #000000; --hover: #C4F501; }
+:root { --bg: #1F1F1F; --ink: #F2F2F2; --muted: #BDBDBD; --btn: #2A2A2A; --btn-ink: #F2F2F2; --line: #3A3A3A;
+  --lime: #C4F501; --blurple: #5865F2; --focus: #C4F501; }
 @media (prefers-color-scheme: light) {
-  :root { --bg: #F5F7EC; --card: #FFFFFF; --ink: #1F1F1F; --muted: #4A4A4A; --line: #E2E5D6; --hover: #270249; }
+  :root { --bg: #F5F7EC; --ink: #1F1F1F; --muted: #4A4A4A; --btn: #FFFFFF; --btn-ink: #1F1F1F; --line: #1F1F1F; --focus: #270249; }
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink); font: 500 16px/1.5 "Quicksand", system-ui, sans-serif; }
-.wrap { max-width: 520px; margin: 0 auto; padding: 48px 16px 40px; }
+.wrap { max-width: 580px; margin: 0 auto; padding: 48px 16px 32px; }
+
+/* profile block, Linktree-style: small avatar, title, handle, short bio */
 .me { text-align: center; }
-.avatar { width: 160px; height: 160px; border-radius: 50%; display: block; margin: 0 auto 16px; }
-h1 { font: 600 40px/1.1 "Newsreader", Georgia, serif; margin: 0; }
-.handle { margin: 4px 0 0; color: var(--muted); font-weight: 700; }
-.tagline { font: 22px/1.4 "Ovo", Georgia, serif; margin: 14px 0 6px; }
-.bio { margin: 0 auto; max-width: 400px; color: var(--muted); }
-.links { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 12px; }
-.link { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 12px; padding: 16px 20px; min-height: 64px;
-  border-radius: 18px; background: var(--card); border: 2px solid var(--line); color: var(--ink); text-decoration: none; }
-.link .label { font-weight: 700; font-size: 17px; grid-column: 1; }
-.link .sub { grid-column: 1; font-size: 14px; color: var(--muted); }
-.link .arrow, .link .pill { grid-column: 2; grid-row: 1 / span 2; }
-.link .arrow { font-size: 20px; font-weight: 700; }
-a.link:hover, a.link:focus-visible { border-color: var(--hover); transform: translateY(-1px); }
-a.link:focus-visible { outline: 3px solid var(--hover); outline-offset: 2px; }
-.link.primary { background: var(--primary-bg); color: var(--primary-ink); border-color: #000000; box-shadow: 0 4px 0 #000000; }
-.link.primary .sub { color: #1F1F1F; }
-.link.primary:hover { transform: translateY(1px); box-shadow: 0 3px 0 #000000; border-color: #000000; }
-.link.soon { opacity: .7; border-style: dashed; }
-.pill { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; border: 1.5px solid var(--muted); color: var(--muted); }
-footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 13px; }
-footer img { background: #FFFFFF; padding: 8px 12px; border-radius: 10px; height: auto; width: 220px; }
-@media (prefers-reduced-motion: reduce) { .link { transition: none; } a.link:hover { transform: none; } }
-/* Name in Luna (image from Canva). One-colour exports sit on a white plate so they read in both themes. */
-.name-img { margin: 0; line-height: 0; }
-.name-img img { display: block; margin: 0 auto; height: 120px; width: auto; max-width: 100%; }
-.name-img.plate img { background: #FFFFFF; padding: 14px 22px; border-radius: 16px; }
-.name-img + .handle { margin-top: 12px; }
+/* header art: Chaos's GreenSplash (Canva export, carries the Luna wordmark) nested in a black box */
+.hero { background: #000000; border-radius: 24px; padding: 14px; max-width: 360px; margin: 0 auto 18px; }
+.hero img { display: block; width: 100%; height: auto; border-radius: 14px; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.handle { margin: 0; font-weight: 700; color: var(--muted); }
+.tagline { font: 20px/1.4 "Ovo", Georgia, serif; margin: 12px 0 4px; }
+.bio { margin: 0 auto; max-width: 420px; color: var(--muted); font-size: 15px; }
+
+/* stacked full-width pill buttons, centred labels, optional icon on the left */
+.links { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; }
+.btn { position: relative; display: flex; align-items: center; justify-content: center; min-height: 58px; padding: 14px 68px;
+  border-radius: 999px; background: var(--btn); color: var(--btn-ink); border: 2px solid var(--line);
+  text-decoration: none; text-align: center; font-weight: 700; font-size: 16px; transition: transform .12s ease; }
+.btn .icon { position: absolute; left: 18px; top: 50%; width: 26px; height: 26px; transform: translateY(-50%); }
+a.btn:hover { transform: scale(1.02); }
+a.btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.btn.primary { background: var(--lime); color: #000000; border-color: #000000; box-shadow: 0 4px 0 #000000; }
+.btn.discord { background: var(--blurple); color: #FFFFFF; border-color: var(--blurple); }
+.btn.soon { opacity: .65; border-style: dashed; }
+.pill { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-size: 11px; font-weight: 700;
+  padding: 2px 9px; border-radius: 999px; border: 1.5px solid currentColor; }
+
+footer { margin-top: 36px; text-align: center; color: var(--muted); font-size: 12px; }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } a.btn:hover { transform: none; } }
