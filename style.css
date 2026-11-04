@@ -32,3 +32,8 @@ a.link:focus-visible { outline: 3px solid var(--hover); outline-offset: 2px; }
 footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 13px; }
 footer img { background: #FFFFFF; padding: 8px 12px; border-radius: 10px; height: auto; width: 220px; }
 @media (prefers-reduced-motion: reduce) { .link { transition: none; } a.link:hover { transform: none; } }
+/* Name in Luna (image from Canva). One-colour exports sit on a white plate so they read in both themes. */
+.name-img { margin: 0; line-height: 0; }
+.name-img img { display: block; margin: 0 auto; height: 120px; width: auto; max-width: 100%; }
+.name-img.plate img { background: #FFFFFF; padding: 14px 22px; border-radius: 16px; }
+.name-img + .handle { margin-top: 12px; }
